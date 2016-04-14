@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CFP-A9-D8b">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mapa-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Mapa" id="BYZ-38-t0r" customClass="ViewController" customModule="MisRincones" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-f7-HQg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gOV-f7-HQg" secondAttribute="trailing" constant="-20" id="DBt-M7-mmR"/>
+                            <constraint firstItem="gOV-f7-HQg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="YRy-dK-Qer"/>
+                            <constraint firstItem="gOV-f7-HQg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="dGQ-2R-Onf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gOV-f7-HQg" secondAttribute="bottom" id="zhh-L4-WUD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="gOV-f7-HQg" id="5Wz-ml-6sa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="1015"/>
+        </scene>
+        <!--Mis Rincones-->
+        <scene sceneID="615-Yt-BhK">
+            <objects>
+                <tableViewController id="DBW-tG-3zQ" customClass="TableViewController" customModule="MisRincones" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="i5S-D9-UvT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="FTX-iD-owq">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FTX-iD-owq" id="ogk-02-Es2">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="showPointInMap" id="udz-Y1-3vd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DBW-tG-3zQ" id="Sa0-Rt-ttC"/>
+                            <outlet property="delegate" destination="DBW-tG-3zQ" id="e7Z-Og-SY9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Mis Rincones" id="Hd7-qI-R68">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="YBg-J0-yZT">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="addPoint" id="g6j-dt-xG5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7iK-0U-Axp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="1008"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="egC-53-79g">
+            <objects>
+                <navigationController id="CFP-A9-D8b" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mpY-lf-QJu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DBW-tG-3zQ" kind="relationship" relationship="rootViewController" id="lfl-ch-45m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XJU-eg-fYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-160" y="1007"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="g6j-dt-xG5"/>
+    </inferredMetricsTieBreakers>
+</document>
